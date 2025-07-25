@@ -1,0 +1,41 @@
+name: pythonlab
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - graphviz
+  - gymnasium
+  - ipykernel
+  - joblib
+  - jupyter
+  - jupyter_contrib_nbextensions
+  - jupyter_nbextensions_configurator
+  - jupyter_server=1.23.4
+  - jupyterlab
+  - matplotlib
+  - nbconvert=6.5.0
+  - nbformat 
+  - networkx
+  - notebook=6.5.4
+  - numpy
+  - pandas
+  - plotly
+  - pydot
+  - pyfolio-reloaded
+  - riskfolio-lib
+  - scikit-learn
+  - shap
+  - sqlalchemy
+  - stable-baselines3
+  - streamlit
+  - tabulate
+  - tensorflow
+  - traitlets=5.7.1
+  - urllib3=1.26.15
+  - xgboost
+  - pip
+  - pip:
+      - arch
+      - opstrat
+      - quantmod

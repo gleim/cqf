@@ -1,0 +1,163 @@
+{
+  "max_open_trades": 5,
+  "stake_currency": "USDC",
+  "stake_amount": 10000,
+  "tradable_balance_ratio": 0.99,
+  "fiat_display_currency": "USD",
+  "dry_run": true,
+  "dry_run_wallet": 250000,
+  "cancel_open_orders_on_exit": false,
+  
+  "timeframe": "1m",
+  "trading_mode": "futures",
+  "margin_mode": "isolated",
+  
+  "use_exit_signal": true,
+  "exit_profit_only": false,
+  "exit_profit_offset": 0.0,
+  "ignore_roi_if_entry_signal": false,
+  
+  "unfilledtimeout": {
+    "entry": 10,
+    "exit": 10,
+    "exit_timeout_count": 0,
+    "unit": "minutes"
+  },
+  
+  "entry_pricing": {
+    "price_side": "same",
+    "use_order_book": true,
+    "order_book_top": 1,
+    "price_last_balance": 0.0,
+    "check_depth_of_market": {
+      "enabled": false,
+      "bids_to_ask_delta": 1
+    }
+  },
+  
+  "exit_pricing": {
+    "price_side": "same",
+    "use_order_book": true,
+    "order_book_top": 1
+  },
+  
+    "exchange": {
+    "name": "hyperliquid",
+    "key": "",
+    "secret": "",
+    "ccxt_config": {
+        "rateLimit": 100,
+        "enableRateLimit": true
+    },
+    "ccxt_async_config": {
+        "rateLimit": 100,
+        "enableRateLimit": true
+    },
+    "pair_whitelist": [
+      "BTC/USDC:USDC",
+      "ETH/USDC:USDC",
+      "HYPE/USDC:USDC",
+      "SOL/USDC:USDC"
+    ],
+    "pair_blacklist": []
+  },
+  
+  "pairlists": [
+    {
+      "method": "StaticPairList"
+    }
+  ],
+  
+  "edge": {
+    "enabled": false
+  },
+  
+  "freqai": {
+    "enabled": true,
+    "model_save_type": "stable",
+    "freqaimodel": "SVRSurfModel",
+    "freqaimodel_path": "user_data/versions/v1.27/freqaimodels/",
+    "purge_old_models": 3,
+    "train_period_days": 7,
+    "backtest_period_days": 1,
+    "live_retrain_hours": 1,
+    "expiration_hours": 2,
+    "identifier": "surf_v1_27_svm_rbf",
+    "continual_learning": true,
+    "write_metrics_to_disk": true,
+    "feature_parameters": {
+      "include_timeframes": ["1m", "5m", "15m"],
+      "include_corr_pairlist": [
+        "BTC/USDC:USDC"
+      ],
+      "label_period_candles": 12,
+      "include_shifted_candles": 2,
+      "DI_threshold": 1.0,
+      "weight_factor": 0.9,
+      "principal_component_analysis": false,
+      "use_SVM_to_remove_outliers": true,
+      "svm_params": {
+        "shuffle": false,
+        "nu": 0.1
+      },
+      "use_DBSCAN_to_remove_outliers": false,
+      "indicator_periods_candles": [5, 10, 20, 50],
+      "plot_feature_importances": 10
+    },
+    "data_split_parameters": {
+      "test_size": 0.25,
+      "shuffle": false
+    },
+    "model_training_parameters": {
+      "C": 1.0,
+      "gamma": "scale",
+      "epsilon": 0.1
+    },
+    "rl_config": {
+      "drop_ohlc_from_features": false,
+      "train_cycles": 25,
+      "add_state_info": true,
+      "max_trade_duration_candles": 300,
+      "model_reward_parameters": {
+        "rr": 1.0,
+        "profit_aim": 0.025
+      }
+    }
+  },
+  
+  "telegram": {
+    "enabled": false,
+    "token": "",
+    "chat_id": ""
+  },
+  
+  "api_server": {
+    "enabled": true,
+    "listen_ip_address": "127.0.0.1",
+    "listen_port": 8080,
+    "verbosity": "error",
+    "enable_openapi": false,
+    "jwt_secret_key": "changeme",
+    "ws_token": "changeme",
+    "CORS_origins": [],
+    "username": "freqtrader",
+    "password": "freqtrader"
+  },
+  
+  "bot_name": "surf_v1.27_svm_rbf",
+  "initial_state": "running",
+  "force_entry_enable": false,
+  "internals": {
+    "process_throttle_secs": 10
+  },
+  
+  "strategy": "SurfMultiModel_v1_27",
+  "strategy_path": "user_data/versions/v1.27/strategy/",
+  
+  "db_url": "sqlite:///tradesv3_v1.27.dryrun.sqlite",
+  "logfile": "user_data/versions/v1.27/logs/freqtrade_v1.27.log",
+  
+  "user_data_dir": "user_data",
+  "datadir": "user_data/data"
+}
+
